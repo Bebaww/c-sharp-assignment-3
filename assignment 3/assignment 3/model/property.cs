@@ -8,6 +8,7 @@ namespace assignment_3
 {
     internal class property
     {
+       static List<property> products=new List<property>();   
        public int number { get; set; }  
         public string inventory_number{ get; set; }    
         public string item_name{ get; set; }   
@@ -25,7 +26,13 @@ namespace assignment_3
             Console.WriteLine($"total price = {total_price}");
 
             Console.WriteLine("succesfully added");
+            products.Add(this);
         }
 
+     /*  public  static List<property> getallproducts()
+        {
+            return products;
+        }
+     */
     }
 }
