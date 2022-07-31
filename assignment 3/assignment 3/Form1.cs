@@ -21,25 +21,46 @@ namespace assignment_3
         {
             property p = new property { item_name = txt_itemname.Text, inventory_number = txt_inventory.Text, number = Convert.ToInt32(txt_number.Text), price = Convert.ToInt32(txt_price.Text), count = Convert.ToInt32(txt_count.Text) };
            
-            
-           /* Regex reg = new Regex(@"^[0-9]{3}$");
-          if ( ! reg.IsMatch(txt_count.Text))
+           
+            Regex reg = new Regex(@"^[0-9]{3}$");
+            Regex reg1 = new Regex(@"^[A-Z]{1}[a-z]+$");
+            Regex reg2 = new Regex(@"^[A-Z]{1}[0-9]{2}[a-z]{3}$");
+
+            if (!reg.IsMatch(txt_count.Text))
             {
                 errorProvider1.SetError(txt_count, "invald count");
-               
+
             }
-          */
+
+            if (!reg1.IsMatch(txt_itemname.Text))
+            {
+                errorProvider1.SetError(txt_itemname, "ivlaid item name");
+            }
+
+            if (!reg.IsMatch(txt_number.Text))
+            {
+                errorProvider1.SetError(txt_number, "number should be >1000");
+            }
+
+            if (!reg.IsMatch(txt_price.Text))
+            {
+                errorProvider1.SetError(txt_number, "price should be >1000");
+            }
+
+            if (!reg2.IsMatch(txt_inventory.Text))
+            {
+                errorProvider1.SetError(txt_number, "invalid inventory number");
+            }
+            else
+            {
 
 
-
-
+                dataGridView.DataSource = null;
+                dataGridView.DataSource = property.getallproducts();
                 MessageBox.Show($"product    {p.item_name}  added sucessfuy");
-            p.save();
-            /*
-            dataGridView.DataSource = null;
-            dataGridView.DataSource = property.getallproducts();
+            }
             errorProvider1.Clear();
-            */
+           
         }
 
       

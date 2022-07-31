@@ -17,22 +17,14 @@ namespace assignment_3
  
         public void save()
         {
-            Console.WriteLine($"number ={number}");
-            Console.WriteLine($" inventory number ={inventory_number}");
-            Console.WriteLine($"item name ={item_name}");
-            Console.WriteLine($"count ={count}");
-            Console.WriteLine($"price ={price}");
-            int total_price = count * price;
-            Console.WriteLine($"total price = {total_price}");
-
-            Console.WriteLine("succesfully added");
+           
             products.Add(this);
         }
 
-     /*  public  static List<property> getallproducts()
+        public static List<property> getallproducts()
         {
             return products;
         }
-     */
+
     }
 }
